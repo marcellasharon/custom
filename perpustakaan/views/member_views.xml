@@ -1,0 +1,73 @@
+<odoo>
+<record id="member_view_form" model="ir.ui.view">
+        <field name="name">member.view.form</field>
+        <field name="model">perpustakaan.member</field>
+        <field name="arch" type="xml">
+            <form string="Member form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="kode"/>
+                            <field name="name"/>
+                            <field name="hp"/>
+                            <field name="alamat"/>
+                            <field name="status" widget="radio"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="member_view_list" model="ir.ui.view">
+        <field name="name">member.view.list</field>
+        <field name="model">perpustakaan.member</field>
+        <field name="arch" type="xml">
+            <tree string="Member list">
+                <field name="kode"/>
+                <field name="name"/>
+                <field name="hp"/>
+                <field name="alamat"/>
+                <field name="status"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="member_view_search" model="ir.ui.view">
+    <field name="name">member.view.search</field>
+    <field name="model">perpustakaan.member</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="kode"/>
+            <field name="name"/>
+            <field name="hp"/>
+            <field name="alamat"/>
+            <field name="status"/>
+            <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+            <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>
+            <separator/>
+
+            <group string="Group By..." expand="0" name="groupby">
+                <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                <filter string="Status" name="by_status" context="{'group_by': 'status'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="member_action" model="ir.actions.act_window">
+    <field name="name">Member</field>
+    <field name="res_model">perpustakaan.member</field>
+    <field name="view_id" ref="member_view_list"/>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="member_menu" parent="perpustakaan.perpustakaan_menu" name="Member"
+          action="member_action" sequence="20"/>
+
+
+</odoo>
