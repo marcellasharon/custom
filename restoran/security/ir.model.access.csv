@@ -1,0 +1,21 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_bukumenu_user","Access Restoran for User Menu","model_restoran_bukumenu","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_bukumenu_admin","Access Restoran for Admin Menu","model_restoran_bukumenu","sales_team.group_sale_manager",1,1,1,1,
+"access_customer_user","Access Restoran for User Customer","model_restoran_customer","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_customer_admin","Access Restoran for Admin Customer","model_restoran_customer","sales_team.group_sale_manager",1,1,1,1,
+"access_employee_user","Access Restoran for User Employee","model_restoran_employee","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_employee_admin","Access Restoran for Admin Employee","model_restoran_employee","sales_team.group_sale_manager",1,1,1,1,
+"access_payment_user","Access Restoran for User Payment","model_restoran_payment","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_payment_admin","Access Restoran for Admin Payment","model_restoran_payment","sales_team.group_sale_manager",1,1,1,1,
+"access_delivery_user","Access Restoran for User Delivery","model_restoran_delivery","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_delivery_admin","Access Restoran for Admin Delivery","model_restoran_delivery","sales_team.group_sale_manager",1,1,1,1,
+"access_orders_user","Access Restoran for User Orders","model_restoran_orders","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_orders_admin","Access Restoran for Admin Orders","model_restoran_orders","sales_team.group_sale_manager",1,1,1,1,
+"access_detail_user","Access Restoran for User Detail","model_restoran_detail","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_detail_admin","Access Restoran for Admin Detail","model_restoran_detail","sales_team.group_sale_manager",1,1,1,1,
+"access_wiz_restoran_kelas_user","Access Idea for User MK","model_wiz_restoran_kelas","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_restoran_kelas_lines_admin","Access Idea for Admin","model_wiz_restoran_kelas_lines","sales_team.group_sale_manager",1,1,1,1,
+"access_kelas_user","Access Restoran for User MK","model_restoran_kelas","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kelas_admin","Access Restoran for Admin","model_restoran_kelas","sales_team.group_sale_manager",1,1,1,1,
+"access_kelas_lines_user","Access Restoran for User MK","model_restoran_kelas_lines","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kelas_lines_admin","Access Restoran for Admin","model_restoran_kelas_lines","sales_team.group_sale_manager",1,1,1,1,
