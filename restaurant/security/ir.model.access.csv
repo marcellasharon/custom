@@ -1,0 +1,21 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_customer_user","Access Restaurant for User Customer","model_restaurant_customer","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_customer_admin","Access Restaurant for Admin Customer","model_restaurant_customer","sales_team.group_sale_manager",1,1,1,1,
+"access_detail_user","Access Restaurant for User Detail","model_restaurant_detail","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_detail_admin","Access Restaurant for Admin Detail","model_restaurant_detail","sales_team.group_sale_manager",1,1,1,1,
+"access_employee_user","Access Restaurant for User Employee","model_restaurant_employee","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_employee_admin","Access Restaurant for Admin Employee","model_restaurant_employee","sales_team.group_sale_manager",1,1,1,1,
+"access_bukumenu_user","Access Restaurant for User Menu","model_restaurant_bukumenu","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_bukumenu_admin","Access Restaurant for Admin Menu","model_restaurant_bukumenu","sales_team.group_sale_manager",1,1,1,1,
+"access_orders_user","Access Restaurant for User Orders","model_restaurant_orders","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_orders_admin","Access Restaurant for Admin Orders","model_restaurant_orders","sales_team.group_sale_manager",1,1,1,1,
+"access_payment_user","Access Restaurant for User Payment","model_restaurant_payment","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_payment_admin","Access Restaurant for Admin Payment","model_restaurant_payment","sales_team.group_sale_manager",1,1,1,1,
+"access_delivery_user","Access Restaurant for User Delivery","model_restaurant_delivery","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_delivery_admin","Access Restaurant for Admin Delivery","model_restaurant_delivery","sales_team.group_sale_manager",1,1,1,1,
+"access_wiz_restaurant_kelas_user","Access Idea for User MK","model_wiz_restaurant_kelas","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_wiz_restaurant_kelas_lines_admin","Access Idea for Admin","model_wiz_restaurant_kelas_lines","sales_team.group_sale_manager",1,1,1,1,
+"access_kelas_user","Access Idea for User MK","model_restaurant_kelas","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kelas_admin","Access Idea for Admin","model_restaurant_kelas","sales_team.group_sale_manager",1,1,1,1,
+"access_kelas_lines_user","Access Idea for User MK","model_restaurant_kelas_lines","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_kelas_lines_admin","Access Idea for Admin","model_restaurant_kelas_lines","sales_team.group_sale_manager",1,1,1,1,

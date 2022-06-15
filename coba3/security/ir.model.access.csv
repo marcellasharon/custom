@@ -1,0 +1,5 @@
+"id","name","model_id:id","group_id:id","perm_read","perm_write","perm_create","perm_unlink"
+"access_novel_user","Access Coba3 for User Novel","model_coba3_novel","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_novel_admin","Access Coba3 for Admin Novel","model_coba3_novel","sales_team.group_sale_manager",1,1,1,1,
+"access_ResPartner_user","Access Coba3 for User ResPartner","model_coba3_ResPartner","sales_team.group_sale_salesman_all_leads",1,1,1,0
+"access_ResPartner_admin","Access Coba3 for Admin ResPartner","model_coba3_ResPartner","sales_team.group_sale_manager",1,1,1,1,

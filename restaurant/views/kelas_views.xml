@@ -1,0 +1,71 @@
+<odoo>
+<record id="kelas_view_form" model="ir.ui.view">
+        <field name="name">kelas.view.form</field>
+        <field name="model">restaurant.kelas</field>
+        <field name="arch" type="xml">
+            <form string="Kelas form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <!--smart button-->
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_wiz_restaurant" type="object" string="Update Detail" class="oe_stat_button" icon="fa-pencil-square-o">
+                        </button>
+                    </div>
+
+                    <group>
+                        <group>
+                            <field name="kode"/>
+                            <field name="customer_id"/>
+                            <field name="tanggal"/>
+                        </group>
+<!--                        <group>-->
+<!--                            <field name="ips"/>-->
+<!--                        </group>-->
+                    </group>
+                    <notebook>
+                        <page string="Detail" name="restaurant_kelas">
+                            <field name="line_ids">
+                                <tree editable="bottom">
+                                    <field name="bukumenu_id"/>
+                                    <field name="qty" readonly="0"/>
+<!--                                    <field name="sks_id"/>-->
+<!--                                    <field name="grade"/>-->
+
+                                </tree>
+
+</field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="kelas_view_list" model="ir.ui.view">
+        <field name="name">kelas.view.list</field>
+        <field name="model">restaurant.kelas</field>
+        <field name="arch" type="xml">
+            <tree string="Kelas list">
+                <field name="kode"/>
+                <field name="customer_id"/>
+                <field name="tanggal"/>
+                <field name="state" invisible="1"/>
+            </tree>
+        </field>
+    </record>
+
+
+<record id="kelas_action" model="ir.actions.act_window">
+    <field name="name">Kelas</field>
+    <field name="res_model">restaurant.kelas</field>
+    <field name="view_id" ref="kelas_view_list"/>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="kelas_menu" parent="restaurant.restaurant_menu" name="Kelas"
+          action="kelas_action" sequence="70"/>
+
+</odoo>

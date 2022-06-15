@@ -1,0 +1,82 @@
+<odoo>
+<record id="orders_view_form" model="ir.ui.view">
+        <field name="name">orders.view.form</field>
+        <field name="model">restaurant.orders</field>
+        <field name="arch" type="xml">
+            <form string="Orders form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="kode"/>
+                            <field name="customer_id"/>
+                            <field name="tanggal" widget="float_time"/>
+                        </group>
+                        <group>
+                            <field name="total_qty"/>
+                            <field name="total_harga"/>
+<!--                            <field name="delivery_id"/>-->
+                        </group>
+                    </group>
+                    <notebook>
+                        <page string="Detail" name="detail">
+                            <field name="detail_ids" readonly="0">
+                                <tree>
+                                    <field name="bukumenu_id"/>
+                                    <field name="qty"/>
+                                    <field name="harga_id"/>
+                                    <field name="subtotal"/>
+                                </tree>
+                            </field>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="orders_view_list" model="ir.ui.view">
+        <field name="name">orders.view.list</field>
+        <field name="model">restaurant.orders</field>
+        <field name="arch" type="xml">
+            <tree string="Orders list">
+                <field name="total_harga"/>
+                <field name="total_qty"/>
+<!--                <field name="delivery_id"/>-->
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="orders_view_search" model="ir.ui.view">
+    <field name="name">orders.view.search</field>
+    <field name="model">restaurant.orders</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="kode"/>
+            <field name="tanggal"/>
+            <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+            <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>
+            <separator/>
+
+            <group string="Group By..." expand="0" name="groupby">
+                <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                <filter string="Tanggal" name="by_tanggal" context="{'group_by': 'tanggal'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="orders_action" model="ir.actions.act_window">
+    <field name="name">Orders</field>
+    <field name="res_model">restaurant.orders</field>
+    <field name="view_id" ref="orders_view_list"/>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="orders_menu" parent="restaurant.restaurant_menu" name="Orders"
+          action="orders_action" sequence="60"/>
+
+</odoo>

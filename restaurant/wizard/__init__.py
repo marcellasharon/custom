@@ -1,0 +1,1 @@
+from . import wiz_restaurant_kelas

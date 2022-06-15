@@ -1,0 +1,66 @@
+<odoo>
+<record id="delivery_view_form" model="ir.ui.view">
+        <field name="name">delivery.view.form</field>
+        <field name="model">restaurant.delivery</field>
+        <field name="arch" type="xml">
+            <form string="Delivery form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="kode"/>
+                            <field name="departure_time" widget="departure_time"/>
+                            <field name="arrival_time" widget="arrival_time"/>
+                            <field name="status" widget="radio"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="delivery_view_list" model="ir.ui.view">
+        <field name="name">delivery.view.list</field>
+        <field name="model">restaurant.delivery</field>
+        <field name="arch" type="xml">
+            <tree string="Delivery list">
+                <field name="kode"/>
+                <field name="status"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="delivery_view_search" model="ir.ui.view">
+    <field name="name">delivery.view.search</field>
+    <field name="model">restaurant.delivery</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="kode"/>
+            <field name="status"/>
+            <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+            <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>
+            <separator/>
+
+            <group string="Group By..." expand="0" name="groupby">
+                <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                <filter string="Status" name="by_status" context="{'group_by': 'status'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="delivery_action" model="ir.actions.act_window">
+    <field name="name">Delivery</field>
+    <field name="res_model">restaurant.delivery</field>
+    <field name="view_id" ref="delivery_view_list"/>
+    <field name="view_mode">tree,form</field>
+</record>
+
+<menuitem id="delivery_menu" parent="restaurant.restaurant_menu" name="Delivery"
+          action="delivery_action" sequence="50"/>
+
+</odoo>

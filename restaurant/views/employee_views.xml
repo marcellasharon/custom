@@ -1,0 +1,73 @@
+<odoo>
+<record id="employee_view_form" model="ir.ui.view">
+        <field name="name">employee.view.form</field>
+        <field name="model">restaurant.employee</field>
+        <field name="arch" type="xml">
+            <form string="Employee form">
+                <header>
+                    <button name="action_done" string="Done" states="draft" type="object" class="btn-primary"/>
+                    <button name="action_settodraft" string="Set to Draft" states="canceled" type="object" class="btn-primary"/>
+                    <button name="action_canceled" string="Cancel" states="done" type="object" class="btn-primary" groups="sales_team.group_sale_manager"/>
+                    <field name="state" widget="statusbar" statusbar_visible="draft,done"/>
+                </header>
+                <sheet>
+                    <group>
+                        <group>
+                            <field name="kode"/>
+                            <field name="name"/>
+                            <field name="hp"/>
+                            <field name="alamat"/>
+                            <field name="role" widget="radio"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <record id="employee_view_list" model="ir.ui.view">
+        <field name="name">employee.view.list</field>
+        <field name="model">restaurant.employee</field>
+        <field name="arch" type="xml">
+            <tree string="Employee list">
+                <field name="kode"/>
+                <field name="name"/>
+                <field name="hp"/>
+                <field name="alamat"/>
+                <field name="role"/>
+                <field name="state"/>
+            </tree>
+        </field>
+    </record>
+    <record id="employee_view_search" model="ir.ui.view">
+    <field name="name">employee.view.search</field>
+    <field name="model">restaurant.employee</field>
+    <field name="arch" type="xml">
+        <search>
+            <field name="kode"/>
+            <field name="name"/>
+            <field name="hp"/>
+            <field name="alamat"/>
+            <field name="role"/>
+            <filter string="Draft" name="draft_filter" domain="[('state', '=', 'draft')]"/>
+            <filter string="Done" name="done_filter" domain="[('state', '=', 'done')]"/>
+            <separator/>
+
+            <group string="Group By..." expand="0" name="groupby">
+                <filter string="State" name="by_state" context="{'group_by': 'state'}"/>
+                <filter string="Role" name="by_role" context="{'group_by': 'role'}"/>
+            </group>
+        </search>
+    </field>
+</record>
+
+<record id="employee_action" model="ir.actions.act_window">
+    <field name="name">Employee</field>
+    <field name="res_model">restaurant.employee</field>
+    <field name="view_id" ref="employee_view_list"/>
+    <field name="view_mode">tree,form</field>
+</record>
+<menuitem id="employee_menu" parent="restaurant.restaurant_menu" name="Employee"
+          action="employee_action" sequence="30"/>
+
+
+</odoo>
