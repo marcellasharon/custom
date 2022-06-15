@@ -10,10 +10,10 @@
     'depends': ['base', 'sales_team'],  # list of dependencies, conditioning startup order
     'data': [
         'security/ir.model.access.csv',
+        'views/bukumenu_views.xml',
         'views/customer_views.xml',
         'views/delivery_views.xml',
         'views/employee_views.xml',
-        'views/bukumenu_views.xml',
         'views/orders_views.xml',
         'views/payment_views.xml',
         'views/kelas_views.xml',
